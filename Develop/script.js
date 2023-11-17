@@ -12,6 +12,7 @@ const big= {
   special:['?', '!', '@', '#', '$', '%', '&', '*'],
 }
 var Bank = []
+
 function generatePassword(){
 const lowerCase = window.confirm("Do you want to include lower Case letters?")
 const upperCase = window.confirm("Do you want to include Upper Case letters?")
@@ -19,29 +20,30 @@ const specialChar = window.confirm("Do you want to include special characters?")
 
 
 if(lowerCase=== true && upperCase === true && specialChar === true) {
-  Bank = [big.lower.concat(big.upper, big.special)];
+  Bank = big.lower.concat(big.upper, big.special);
 }else if (lowerCase === true && upperCase=== true && specialChar === false) {
-  Bank = [big.lower.concat(big.upper)];
+  Bank = big.lower.concat(big.upper);
 } else if (lowerCase=== true && upperCase === false && specialChar === false){
-  Bank = [big.lower];
+  Bank = big.lower;
 } else if (lowerCase === true && upperCase === false && specialChar === true) {
-  Bank = [big.lower.concat(big.specialChar)];
+  Bank = big.lower.concat(big.specialChar);
 } else if (lowerCase === false && upperCase === true && specialChar === true){
-  Bank = [big.upper.concat(big.special)];
+  Bank = big.upper.concat(big.special);
 } else if (lowerCase === false && upperCase === true && specialChar === false){
-  Bank = [big.upper];
+  Bank = big.upper;
 } else if (lowerCase === false && upperCase === false && specialChar === true) {
-  Bank = [big.special];
+  Bank = big.special;
 } else if (lowerCase === false && upperCase === false && specialChar === false){
   window.alert("You must make a selection. Start Over.")
 }
 
-const random = Math.floor(Math.random * passLength)
+let random;
 
-  for (let i=0; i < passLength, i++;){
+for (let i=0; i < passLength; i++){
+   random = Math.floor(Math.random() * Bank.length);
     result.push(Bank[random]);
   } 
-  
+
 }
 
 
@@ -51,7 +53,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = result;
+  passwordText.value = result.join(""); // join creates a new string out of all the elements in the array
 
 }
 

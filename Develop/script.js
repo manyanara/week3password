@@ -35,6 +35,7 @@ if(lowerCase=== true && upperCase === true && specialChar === true) {
   Bank = big.special;
 } else if (lowerCase === false && upperCase === false && specialChar === false){
   window.alert("You must make a selection. Start Over.")
+  generatePassword();
 } 
 
 let random;
